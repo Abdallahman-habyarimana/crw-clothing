@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./sign-up.styles.scss"
 import FormInput from '../../components/form-input/form-input.component';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase.utils';
 import Button from '../../components/botton/button.component';
+import { UserContext } from '../../contexts/user.context';
 
 const defaultFormFields = {
     displayName: '',
@@ -13,7 +14,9 @@ const defaultFormFields = {
 
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
-    const { displayName, email, password, confirmPassword } = formFields
+    const { displayName, email, password, confirmPassword } = formFields;
+
+    const val = useContext(UserContext)
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
@@ -39,9 +42,6 @@ const SignUpForm = () => {
                 console.log("Failed to connect")
             }
         }
-
-     
-    
     }
 
     const handleChange = (event) => {
