@@ -1,5 +1,4 @@
 // initialize first db
-import { async } from '@firebase/util';
 import { initializeApp } from 'firebase/app';
 import { 
     getAuth, 
@@ -57,24 +56,15 @@ const firebaseConfig = {
     const q = query(collectionRef);
 
     const querySnapshot = await getDocs(q);
-    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-        const { title, items } = docSnapshot.data();
-        acc[title.toLowerCase()] = items;
-        return acc
-    }, {})
-
-    return categoryMap
+    return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
   }
 
   export const createUserDocumentFromAuth = async (userAuth, additionalInformation) => {
     const userDocRef = doc(db, 'users', userAuth.uid);
 
-    console.log(userDocRef);
-
     const userSnapshot = await getDoc(userDocRef);
 
     //check if user does not exist
-
     if(!userSnapshot.exists()) {
         const { displayName, email} = userAuth
         const createdAt= new Date();

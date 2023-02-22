@@ -10,9 +10,6 @@ import { createUserDocumentFromAuth, onAuthStateChangedListener } from './utils/
 import { setCurrentUser } from './store/user/user.action';
 import { useDispatch } from 'react-redux';
 
-
-
-
 const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
