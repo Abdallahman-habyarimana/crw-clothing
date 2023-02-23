@@ -4,12 +4,10 @@ import { ReactComponent as CrwnLogo } from "../../assets/crown.svg"
 import { signOutUser } from "../../utils/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
-import { CartContext } from "../../contexts/cart.context";
 
 import { NavigationContainer, LogoContainer, NavLinks, NavLink }  from "./navigation.styles";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { useSelector } from "react-redux";
-import { useContext } from "react";
 import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
 const Navigation = () => {

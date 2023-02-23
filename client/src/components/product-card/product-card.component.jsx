@@ -1,7 +1,6 @@
 
 import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CartContext } from '../../contexts/cart.context'
 import { addItemToCart } from '../../store/cart/cart.action'
 import { selectCartItems } from '../../store/cart/cart.selector'
 import Button, { BUTTON_TYPE_CLASSES} from '../botton/button.component'
