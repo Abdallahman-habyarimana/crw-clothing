@@ -81,7 +81,7 @@ const firebaseConfig = {
         }
     }
     //check if exists
-    return userDocRef;
+    return userSnapshot;
   }
 
   export const createAuthUserWithEmailAndPassword = async(email, password, ) => {

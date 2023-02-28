@@ -6,15 +6,14 @@ import Navigation from './pages/navigation/navigation.component';
 import Authentication from './pages/authentication/authentication.component';
 import Shop from './pages/shop/shop.component';
 import Checkout from './pages/checkout/checkout.component';
-import { createUserDocumentFromAuth, getCurrentUser, onAuthStateChangedListener } from './utils/firebase.utils';
-import { setCurrentUser } from './store/user/user.action';
+import { checkUserSession } from './store/user/user.action';
 import { useDispatch } from 'react-redux';
 
 const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
-    getCurrentUser().then((user) => console.log(user));
-}, [])
+    dispatch(checkUserSession())
+}, [dispatch])
 
   return (
     <Routes>
